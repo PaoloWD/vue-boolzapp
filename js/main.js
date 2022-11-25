@@ -192,7 +192,7 @@ const app = createApp({
         status: "sent",
       });
       this.messageArray.newMessage = "";
-      this.sendOk();
+      setTimeout(this.sendOk, 3000);
     },
     sendOk() {
       this.selectedUser.messages.push({
