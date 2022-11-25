@@ -3,6 +3,11 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      messageArray: [
+        {
+          newMessage: "",
+        },
+      ],
       selectedUser: null,
       usersList: [
         {
