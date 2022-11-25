@@ -77,18 +77,18 @@ const app = createApp({
           ],
         },
         {
-          name: "Luisa",
+          name: "Gabriella",
           avatar: "img/avatar_4.jpg",
           visible: true,
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              message: "Lo sai che ha aperto una nuova pizzeria?",
+              message: "Ciao Gabriella, oggi sei stata molto scortese",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              message: "Si, ma preferirei andare al cinema",
+              message: "Si scusami, non lo farò più",
               status: "received",
             },
           ],
@@ -197,7 +197,7 @@ const app = createApp({
     sendOk() {
       this.selectedUser.messages.push({
         date: "10/01/2020 16:15:22",
-        message: "ok",
+        message: "Ciao mamma",
         status: "received",
       });
     },
