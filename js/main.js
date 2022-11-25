@@ -1,8 +1,16 @@
 const { createApp } = Vue;
+
 const app = createApp({
   data() {
     return {
+      messageArray: [
+        {
+          newMessage: "",
+        },
+      ],
+
       selectedUser: null,
+      newArray: [],
       usersList: [
         {
           name: "Michele",
@@ -177,5 +185,21 @@ const app = createApp({
         },
       ],
     };
+  },
+  methods: {
+    sendText() {
+      this.newArray.push({
+        name: "Me",
+        visible: true,
+        messages: [
+          {
+            date: "10/01/2020 16:15:22",
+            message: this.messageArray.newMessage,
+            status: "sent",
+          },
+        ],
+      });
+      this.messageArray.newMessage = "";
+    },
   },
 }).mount("#app");

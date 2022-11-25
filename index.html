@@ -117,16 +117,14 @@
             </div>
             <div class="chat-container">
               <div
-                class="receipt-msg"
                 v-if="selectedUser !== null"
-                v-for="message in selectedUser.message"
-              ></div>
-
-              <div class="send-msg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                tenetur, voluptates maxime similique dicta nobis laboriosam
-                reprehenderit illum reiciendis, eos perferendis explicabo unde
-                iste harum nihil dignissimos vero, totam nemo!
+                v-for="message in selectedUser.messages"
+                :class="message.status==='sent' ? 'receipt-msg' : 'send-msg'"
+              >
+                {{message.message}}
+              </div>
+              <div v-for="newMessage in newArray.messages">
+                {{newMessage.message}}
               </div>
             </div>
           </div>
@@ -135,7 +133,13 @@
               class="d-flex justify-content-between align-items-center flex-grow-1 px-3"
             >
               <div class="icon"><i class="fa-regular fa-face-smile"></i></div>
-              <input type="text" class="input-width border-0 icon" />
+              <form action="" class="flex-grow-1" @submit.prevent="sendText()">
+                <input
+                  type="text"
+                  class="input-width"
+                  v-model="messageArray.newMessage"
+                />
+              </form>
               <div class="icon"><i class="fa-solid fa-microphone"></i></div>
             </div>
           </div>
