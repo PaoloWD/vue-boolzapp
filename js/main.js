@@ -192,6 +192,14 @@ const app = createApp({
         status: "sent",
       });
       this.messageArray.newMessage = "";
+      this.sendOk();
+    },
+    sendOk() {
+      this.selectedUser.messages.push({
+        date: "10/01/2020 16:15:22",
+        message: "ok",
+        status: "received",
+      });
     },
   },
 }).mount("#app");
