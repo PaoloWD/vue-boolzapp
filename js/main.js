@@ -2,6 +2,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      selectedUser: null,
       usersList: [
         {
           name: "Michele",
