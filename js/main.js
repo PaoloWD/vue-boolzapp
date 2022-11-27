@@ -201,7 +201,8 @@ const app = createApp({
       });
     },
     deleteMessage(index) {
-      this.usersList.messages.splice(index.message);
+      console.log(index);
+      this.userClicked.messages.splice(index, 1);
     },
   },
   computed: {

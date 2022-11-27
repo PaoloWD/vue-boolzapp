@@ -18,7 +18,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Slider</title>
+    <title>Boolzapp</title>
   </head>
 
   <body>
@@ -101,13 +101,13 @@
               <div class="messagges-container"
               
                 v-if="userClicked !== null"
-                v-for="message in userClicked.messages"
+                v-for="message, i in userClicked.messages"
                 :class="message.status==='sent' ? 'send-msg': 'receipt-msg'"
               >
               <div class="display-flex">
                 {{message.message}}
                 <div>
-                  <div class="dropbox">v</div>
+                  <div class="dropbox" @click="deleteMessage(i)">v</div>
                   <div class="time-chat-message">22:00</div>
                 </div>
 
