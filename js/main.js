@@ -3,6 +3,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      search: "",
       messageArray: [
         {
           newMessage: "",
@@ -200,6 +201,13 @@ const app = createApp({
         message: "Ciao mamma",
         status: "received",
       });
+    },
+  },
+  computed: {
+    filteredName() {
+      return this.usersList.filter((user) =>
+        user.name.toLowerCase().includes(this.search)
+      );
     },
   },
 }).mount("#app");
