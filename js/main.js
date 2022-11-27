@@ -4,12 +4,10 @@ const app = createApp({
   data() {
     return {
       search: "",
-      messageArray: [
-        {
-          newMessage: "",
-        },
-      ],
-      selectedUser: null,
+
+      newMessage: "",
+
+      userClicked: null,
       usersList: [
         {
           name: "Michele",
@@ -186,21 +184,24 @@ const app = createApp({
     };
   },
   methods: {
-    sendText() {
-      this.selectedUser.messages.push({
+    sendMessage() {
+      this.userClicked.messages.push({
         date: "10/01/2020 16:15:22",
-        message: this.messageArray.newMessage,
+        message: this.newMessage,
         status: "sent",
       });
-      this.messageArray.newMessage = "";
+      this.newMessage = "";
       setTimeout(this.sendOk, 3000);
     },
     sendOk() {
-      this.selectedUser.messages.push({
+      this.userClicked.messages.push({
         date: "10/01/2020 16:15:22",
         message: "Ciao mamma",
         status: "received",
       });
+    },
+    deleteMessage(index) {
+      this.usersList.messages.splice(index.message);
     },
   },
   computed: {

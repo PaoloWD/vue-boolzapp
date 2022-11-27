@@ -22,122 +22,111 @@
   </head>
 
   <body>
-    <div id="app">
-      <div class="background-countainer">
-        <div class="background-banner"></div>
-        <div class="background-main"></div>
-      </div>
-
-      <div class="d-flex container-app py-3">
-        <div class="sx-col">
-          <div
-            class="d-flex justify-content-between align-items-center banner-color p-2"
-          >
-            <div class="d-flex align-items-center">
-              <div class="image pr-2">
-                <img src="img/avatar_io.jpg" alt="" />
-              </div>
-              <div class="text-body">Sofia</div>
-            </div>
-            <div class="icons-container-dx d-flex gap">
-              <div><i class="fa-solid fa-rotate-right"></i></div>
-              <div><i class="fa-solid fa-message"></i></div>
-              <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
-            </div>
+      <div id="app">
+          <div class="bg-container">
+            <div class="nav-bg-container"></div>
+            <div class="bg-main-container"></div>
           </div>
-          <div class="d-flex bg-alert p-4">
-            <div class="icon pr-3"><i class="fa-solid fa-bell-slash"></i></div>
-            <div class="small">
-              Ricevi notifiche di nuovi messaggi
-              <div class="small text-secondary text-underline">
-                Attiva notifiche desktop
+        
+        <div class="app-container">
+          <div class="col-sx">
+            <div class="me-container align-items-center display-flex">
+              <div class="display-flex align-items-center">
+                <div><img src="img/avatar_io.jpg" alt="" /></div>
+                <div class="normal-text">Sofia</div>
               </div>
-            </div>
-          </div>
-          <div class="d-flex banner-color align-items-center">
-            <div class="icon text-secondary pr-3 bg-white ml-1 my-2">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="small flex-fill">
-              <input
-                type="text"
-                class="input-width border-0 icon"
-                placeholder="Cerca o inizia una nuova chat"
-                v-model="search"
-              />
-            </div>
-          </div>
-
-          <div class="d-flex flex-column users-container flex-grow-1">
-            <div
-              @click="selectedUser = users"
-              v-for="(users,i) in filteredName "
-              :key="i + users.name"
-            >
-              <div class="d-flex justify-content-between">
-                <div class="d-flex">
-                  <div class="image px-2">
-                    <img :src="users.avatar" alt="" />
-                  </div>
-
-                  <div class="text-body">
-                    {{users.name}}
-                    <div class="small text-secondary">
-                      ultimo messaggio inviato
-                    </div>
-                  </div>
-                </div>
-                <div class="small text-secondary pr-2">12:00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="dx-col">
-          <div class="d-flex flex-column">
-            <div
-              class="d-flex justify-content-between align-items-center banner-color p-3"
-            >
-              <div class="text-body" v-if="selectedUser===null">
-                Seleziona una chat
-              </div>
-              <div v-else>
-                <div class="d-flex">
-                  <div class="image">
-                    <img :src="selectedUser.avatar" alt="" />
-                  </div>
-                  <div class="text-body">
-                    {{selectedUser.name}}
-                    <div class="small">Ultimo accesso alle 22:00</div>
-                  </div>
-                </div>
-              </div>
-              <div class="icons-container-dx d-flex gap">
+              <div class="display-flex gap">
                 <div><i class="fa-solid fa-rotate-right"></i></div>
                 <div><i class="fa-solid fa-message"></i></div>
                 <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
               </div>
             </div>
-            <div class="chat-container">
+            <div class="blue-banner-container display-flex align-items-center">
+              <div class="px"><i class="fa-solid fa-bell-slash"></i></div>
+              <div>
+                Ricevi notifiche di uovi messaggi
+                <div class="small">attiva notifiche desktop</div>
+              </div>
+            </div>
+            <div class="search-container display-flex">
+              <div class="icon-search-container"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <input
+                class="no-border"
+                placeholder="Cerca o inizia una nuova chat"
+                type="text"
+                v-model="search"
+              />
+            </div>
+            <div class="users-container">
               <div
-                v-if="selectedUser !== null"
-                v-for="message in selectedUser.messages"
-                :class="message.status==='sent' ? 'receipt-msg' : 'send-msg'"
+                @click="userClicked=user"
+                class="user-card space-between"
+                v-for="user in filteredName"
               >
-                {{message.message}}
+                <div class="display-flex space-between">
+                  <div class="user-img-container">
+                    <img :src="user.avatar" alt="" />
+                  </div>
+                  <div class="name-user">
+                    {{user.name}}
+                    <div class="last-message">Ultimo messaggio invato</div>
+                  </div>
+                </div>
+                <div class="time-message">12:00</div>
               </div>
             </div>
           </div>
-          <div class="input-chat d-flex">
-            <div
-              class="d-flex justify-content-between align-items-center flex-grow-1 px-3"
-            >
+          <div class="col-dx">
+            <div class="me-container align-items-center display-flex">
+              <div class="text-body" v-if="userClicked===null">
+                Seleziona una chat
+              </div>
+              <div v-else>
+              <div class="display-flex align-items-center">
+                <div><img :src="userClicked.avatar" alt="" /></div>
+                <div class="normal-text">
+                  {{userClicked.name}}
+
+                  <div class="last-message">Ultimo accesso alle ore 12:00</div>
+                </div>
+              </div>
+            </div>
+              <div class="display-flex gap">
+                <div><i class="fa-solid fa-rotate-right"></i></div>
+                <div><i class="fa-solid fa-message"></i></i></div>
+                <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+              </div>
+            </div>
+            <div class="chat-container">
+              <div class="messagges-container"
+              
+                v-if="userClicked !== null"
+                v-for="message in userClicked.messages"
+                :class="message.status==='sent' ? 'send-msg': 'receipt-msg'"
+              >
+              <div class="display-flex">
+                {{message.message}}
+                <div>
+                  <div class="dropbox">v</div>
+                  <div class="time-chat-message">22:00</div>
+                </div>
+
+              </div>
+            
+              
+                
+              </div>
+            </div>
+            <div class="input-container">
               <div class="icon"><i class="fa-regular fa-face-smile"></i></div>
-              <form action="" class="flex-grow-1" @submit.prevent="sendText() ">
+              <form action="" @submit.prevent="sendMessage()" class="form-container">
                 <input
-                  type="text"
-                  class="input-width"
-                  v-model="messageArray.newMessage"
-                />
+                type="text"
+                class="input-footer-class"
+                placeholder="Scrivi un messaggio"
+                v-model="newMessage"
+                
+              />
               </form>
               <div class="icon"><i class="fa-solid fa-microphone"></i></div>
             </div>
