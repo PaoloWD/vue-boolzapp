@@ -187,7 +187,7 @@ const app = createApp({
   methods: {
     sendMessage() {
       this.userClicked.messages.push({
-        date: this.dateTime.now().toFormat("dd/ll/yyyy HH:mm:ss"),
+        date: this.dateTime.now().toFormat("hh:mm"),
         message: this.newMessage,
         status: "sent",
       });
@@ -197,7 +197,7 @@ const app = createApp({
 
     sendOk() {
       this.userClicked.messages.push({
-        date: this.dateTime.now().toFormat("dd/ll/yyyy HH:mm:ss"),
+        date: this.dateTime.now().toFormat("hh:mm"),
         message: "Ciao mamma",
         status: "received",
       });
