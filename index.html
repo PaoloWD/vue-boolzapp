@@ -92,9 +92,12 @@
                 <div><img :src="userClicked.avatar" alt="" /></div>
                 <div class="normal-text">
                   {{userClicked.name}}
+                  <div v-if="userClicked.messages.length>0">
+                    <div class="last-message"v-if="userClicked.messages[userClicked.messages.length - 1].status===`received`" v-html="userClicked.messages[userClicked.messages.length - 1].date"></div>
+                    <div class="last-message" v-else>{{`Online`}}</div>
+                </div>
 
-                  <div class="last-message"v-if="userClicked.messages[userClicked.messages.length - 1].status===`received`" v-html="userClicked.messages[userClicked.messages.length - 1].date"></div>
-                  <div class="last-message" v-else>{{`Online`}}</div>
+                  
                 </div>
               </div>
             </div>
