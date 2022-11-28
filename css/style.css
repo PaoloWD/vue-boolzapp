@@ -115,6 +115,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: auto;
 }
 
 .input-container {
@@ -213,4 +214,8 @@ li {
 
 li:hover {
   background-color: lightgray;
+}
+
+.dm {
+  max-width: 30%;
 }
