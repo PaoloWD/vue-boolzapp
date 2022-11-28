@@ -210,6 +210,10 @@ const app = createApp({
       console.log(index);
       this.userClicked.messages.splice(index, 1);
     },
+
+    infoMessage(i) {
+      alert(`Data del messaggio : ${this.userClicked.messages[i].date}`);
+    },
   },
   computed: {
     filteredName() {
