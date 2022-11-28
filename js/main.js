@@ -49,7 +49,7 @@ const app = createApp({
             },
             {
               date: "20/03/2020 16:35:00",
-              message: "Mi piacerebbe ma devo andare a fare la spesa.",
+              message: "Devo fare la spesa.",
               status: "received",
             },
           ],
@@ -88,7 +88,7 @@ const app = createApp({
             },
             {
               date: "10/01/2020 15:50:00",
-              message: "Si scusami, non lo farò più",
+              message: "Si, scusami",
               status: "received",
             },
           ],

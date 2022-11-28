@@ -24,7 +24,7 @@ img {
 .app-container {
   display: flex;
   height: 100vh;
-  padding: 3rem 7 rem;
+  padding: 3rem 7rem;
 }
 
 .col-sx {
@@ -55,6 +55,7 @@ img {
   background-color: #eaeaea;
   padding: 0.5rem;
   justify-content: space-between;
+  height: 50px;
 }
 
 .blue-banner-container {
