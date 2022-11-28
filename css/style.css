@@ -90,6 +90,7 @@ img {
 
 .user-card {
   display: flex;
+  align-items: center;
   padding-right: 1rem;
 }
 
@@ -191,4 +192,17 @@ img {
 
 .form-container {
   flex-basis: 75%;
+}
+
+.user-card:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.dropbox:hover {
+  cursor: pointer;
+}
+
+.btn:focus {
+  box-shadow: none;
 }
