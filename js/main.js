@@ -192,7 +192,7 @@ const app = createApp({
         status: "sent",
       });
       this.newMessage = "";
-      setTimeout(this.sendOk, 3000);
+      setTimeout(this.sendOk, 2000);
     },
 
     sendOk() {
