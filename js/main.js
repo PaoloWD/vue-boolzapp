@@ -214,6 +214,10 @@ const app = createApp({
     infoMessage(i) {
       alert(`Data del messaggio : ${this.userClicked.messages[i].date}`);
     },
+
+    getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
   },
   computed: {
     filteredName() {
