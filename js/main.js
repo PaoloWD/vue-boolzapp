@@ -187,7 +187,7 @@ const app = createApp({
   methods: {
     sendMessage() {
       this.userClicked.messages.push({
-        date: this.dateTime.now().toFormat(" HH:mm:ss"),
+        date: this.dateTime.now().toFormat("dd/ll/yyyy HH:mm:ss"),
         message: this.newMessage,
         status: "sent",
       });
@@ -196,12 +196,12 @@ const app = createApp({
     },
 
     timeMessage() {
-      return this.dateTime.now().toFormat(" HH:mm:ss");
+      return this.dateTime.now().toFormat("dd/ll/yyyy HH:mm:ss");
     },
 
     sendOk() {
       this.userClicked.messages.push({
-        date: this.dateTime.now().toFormat(" HH:mm:ss"),
+        date: this.dateTime.now().toFormat("dd/ll/yyyy HH:mm:ss"),
         message: "Ciao mamma",
         status: "received",
       });
