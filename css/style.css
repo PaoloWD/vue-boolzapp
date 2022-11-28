@@ -206,3 +206,11 @@ img {
 .btn:focus {
   box-shadow: none;
 }
+
+li {
+  padding-left: 1rem;
+}
+
+li:hover {
+  background-color: lightgray;
+}

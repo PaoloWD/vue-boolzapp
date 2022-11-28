@@ -3,6 +3,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      dateTime: luxon.DateTime,
       search: "",
 
       newMessage: "",
@@ -186,7 +187,7 @@ const app = createApp({
   methods: {
     sendMessage() {
       this.userClicked.messages.push({
-        date: "10/01/2020 16:15:22",
+        date: this.dateTime.now().toFormat(" HH:mm:ss"),
         message: this.newMessage,
         status: "sent",
       });
@@ -195,7 +196,7 @@ const app = createApp({
     },
     sendOk() {
       this.userClicked.messages.push({
-        date: "10/01/2020 16:15:22",
+        date: this.dateTime.now().toFormat(" HH:mm:ss"),
         message: "Ciao mamma",
         status: "received",
       });

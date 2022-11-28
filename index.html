@@ -19,21 +19,13 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
+
     <title>Boolzapp</title>
   </head>
 
   <body>
-    <div class="dropdown">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown link
-      </a>
-    
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+   
       <div id="app">
           <div class="bg-container">
             <div class="nav-bg-container"></div>
@@ -84,7 +76,7 @@
                     <div class="last-message">Ultimo messaggio invato</div>
                   </div>
                 </div>
-                <div class="time-message">12:00</div>
+                <div class="time-message">{{}}</div>
               </div>
             </div>
           </div>
@@ -125,12 +117,12 @@
                       <span class="visually-hidden"></span>
                     </button>
                     <ul class="dropdown-menu">
-                      <li>Info messaggio</li>
+                      <li><small></small> Info messaggio</li>
                       <li @click="deleteMessage(i)">Cancella messaggio</li>
                       
                     </ul>
                   </div></div>
-                  <div class="time-chat-message">22:00</div>
+                  <div class="time-chat-message">{{message.date}}</div>
                 </div>
 
               </div>
