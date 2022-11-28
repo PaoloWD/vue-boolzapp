@@ -73,10 +73,12 @@
                   </div>
                   <div class="name-user">
                     {{user.name}}
-                    <div class="last-message"  v-html="user.messages[user.messages.length - 1].message"></div>
+                    <div class="last-message"  v-if="user.messages.length>0" v-html="user.messages[user.messages.length - 1].message"></div>
+                    <div v-else>{{""}}</div>
                   </div>
                 </div>
-                <div class="time-message" v-html="user.messages[user.messages.length - 1].date"></div>
+                <div class="time-message" v-if="user.messages.length>0" v-html="user.messages[user.messages.length - 1].date"></div>
+                <div v-else>{{""}}</div>
               </div>
             </div>
           </div>
@@ -117,8 +119,8 @@
                       <span class="visually-hidden"></span>
                     </button>
                     <ul class="dropdown-menu">
-                      <li><small></small> Info messaggio</li>
-                      <li @click="deleteMessage(i)">Cancella messaggio</li>
+                      <li><small>Info messaggio</small> </li>
+                      <li @click="deleteMessage(i)"><small>Cancella messaggio</small> </li>
                       
                     </ul>
                   </div></div>
