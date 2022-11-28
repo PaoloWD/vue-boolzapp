@@ -65,7 +65,7 @@
               <div
                 @click="userClicked=user"
                 class="user-card space-between"
-                v-for="user in filteredName"
+                v-for="user, i in filteredName"
               >
                 <div class="display-flex space-between">
                   <div class="user-img-container">
@@ -76,7 +76,7 @@
                     <div class="last-message">Ultimo messaggio invato</div>
                   </div>
                 </div>
-                <div class="time-message">{{}}</div>
+                <div class="time-message" v-html="user.messages[user.messages.length - 1].date">{{user.messages[user.messages.length - 1].date}}</div>
               </div>
             </div>
           </div>

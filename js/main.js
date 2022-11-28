@@ -194,6 +194,11 @@ const app = createApp({
       this.newMessage = "";
       setTimeout(this.sendOk, 3000);
     },
+
+    timeMessage() {
+      return this.dateTime.now().toFormat(" HH:mm:ss");
+    },
+
     sendOk() {
       this.userClicked.messages.push({
         date: this.dateTime.now().toFormat(" HH:mm:ss"),
